@@ -46,6 +46,11 @@ RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 ADD ./index.php /usr/share/nginx/html/index.php
 RUN chown -Rf www-data.www-data /usr/share/nginx/html/
 
+# Config file
+RUN mkdir /opt/filesender/config && ln -s /opt/filesender/config/config.php /opt/filesender/config.php
+RUN cp 
+VOLUME /opt/filesender/config
+
 # Supervisor Config
 ADD ./supervisord.conf /etc/supervisord.conf
 
