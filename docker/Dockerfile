@@ -50,7 +50,7 @@ RUN chown -Rf www-data.www-data /usr/share/nginx/html/
 
 # Config file
 RUN ln -s /opt/filesender/filesender-* /opt/filesender/filesender &&\
-    cp /opt/filesender/filesender/config/config_sample.pgp /opt/filesender/filesender/config/config.php
+    cp /opt/filesender/filesender/config/config_sample.php /opt/filesender/filesender/config/config.php
 VOLUME /opt/filesender/filesender/config
 
 # Supervisor Config
