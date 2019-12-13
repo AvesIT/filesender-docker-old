@@ -39,13 +39,13 @@ RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php/7.0/fpm/pool
 find /etc/php/7.0/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # nginx site conf
-RUN rm -Rf /etc/nginx/conf.d/* && \
-rm -Rf /etc/nginx/sites-enabled/default && \
-rm -Rf /etc/nginx/sites-available/default && \
-mkdir -p /etc/nginx/ssl/
-ADD ./default /etc/nginx/sites-available/default
-RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-ADD ./index.php /usr/share/nginx/html/index.php
+#RUN rm -Rf /etc/nginx/conf.d/* && \
+#rm -Rf /etc/nginx/sites-enabled/default && \
+#rm -Rf /etc/nginx/sites-available/default && \
+#mkdir -p /etc/nginx/ssl/
+#ADD ./default /etc/nginx/sites-available/default
+#RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+#ADD ./index.php /usr/share/nginx/html/index.php
 RUN chown -Rf www-data.www-data /usr/share/nginx/html/
 
 # Config file
