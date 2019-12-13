@@ -8,8 +8,13 @@ python:
   - 3.5
 
 install:
-  - docker build -t avesit/filesender docker/
+  - docker build -t avesit/filesender:${filesender_release} docker/
+  - docker tag avesit/filesender:${filesender_release} avesit/filesender
+  - docker tag avesit/filesender avesit/filesender:fs-${filesender_release}-ss${simplesaml_release}
   - docker run -d -p 127.0.0.1:80:80 --name filesender avesit/filesender
   
 script:
-  - docker image ls -a
+  - echo ${docker_password} | docker login --username ${docker_username}
+  - docker push avesit/filesender
+  - docker push avesit/filesender:${filesender_release}
+  - docker push avesit/filesender:fs-${filesender_release}-ss${simplesaml_release}
