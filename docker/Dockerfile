@@ -49,9 +49,9 @@ find /etc/php/7.0/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\
 RUN chown -Rf www-data.www-data /usr/share/nginx/html/
 
 # Config file
-RUN mkdir /opt/filesender/config && ln -s /opt/filesender/config/config.php /opt/filesender/config.php
-RUN cp 
-VOLUME /opt/filesender/config
+RUN ln -s /opt/filesender/filesender-* /opt/filesender/filesender &&\
+    cp /opt/filesender/filesender/config/config_sample.pgp /opt/filesender/filesender/config/config.php
+VOLUME /opt/filesender/filesender/config
 
 # Supervisor Config
 ADD ./supervisord.conf /etc/supervisord.conf
