@@ -1,6 +1,6 @@
 FROM debian:9-slim
 LABEL maintainer="Nils Vogels <n.vogels@aves-it.nl>"
-ENV release-version 2.13
+ENV release-version=2.13
 
 WORKDIR /root
 
