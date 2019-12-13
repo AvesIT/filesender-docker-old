@@ -5,10 +5,11 @@ ENV release_version=2.13
 WORKDIR /root
 
 RUN apt-get update && \
-    apt-get install -y supervisor --no-install-recommends && \
-    apt-get install -y nginx --no-install-recommends && \
-    apt-get install -y php7.0-fpm --no-install-recommends && \
-    apt-get install -y wget --no-install-recommends && \
+    apt-get install -y --no-install-recommends ca-certificates  && \
+    apt-get install -y --no-install-recommends supervisor  && \
+    apt-get install -y --no-install-recommends nginx && \
+    apt-get install -y --no-install-recommends php7.0-fpm && \
+    apt-get install -y --no-install-recommends wget && \
     apt-get clean && \
     apt-get autoclean
     
