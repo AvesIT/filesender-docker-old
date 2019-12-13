@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get autoclean
     
-RUN wget --no-progress https://github.com/filesender/filesender/archive/filesender-${release-version}.tar.gz
+RUN wget --quiet https://github.com/filesender/filesender/archive/filesender-${release-version}.tar.gz
 
 # prepare nginx
 RUN sed -i -e"s/worker_processes  1/worker_processes 5/" /etc/nginx/nginx.conf && \
