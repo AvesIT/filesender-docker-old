@@ -4,11 +4,11 @@ ENV release-version 2.13
 
 WORKDIR /root
 
-RUN apt update && \
-    apt install -y supervisor --no-install-recommends && \
-    apt install -y nginx --no-install-recommends && \
-    apt install -y php7.2-fpm --no-install-recommends && \
-    apt install -y wget --no-install-recommends && \
+RUN apt-get update && \
+    apt-get install -y supervisor --no-install-recommends && \
+    apt-get install -y nginx --no-install-recommends && \
+    apt-get install -y php7.0-fpm --no-install-recommends && \
+    apt-get install -y wget --no-install-recommends && \
     apt-get clean && \
     apt-get autoclean
     
