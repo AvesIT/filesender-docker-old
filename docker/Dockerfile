@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get autoclean
     
 RUN wget --quiet https://github.com/filesender/filesender/archive/filesender-${release_version}.tar.gz
-RUN mkdir /opt/filesender && 
+RUN mkdir /opt/filesender && \
     tar xzf filesender-${release_version}.tar.gz --directory /opt/filesender
 
 # prepare nginx
